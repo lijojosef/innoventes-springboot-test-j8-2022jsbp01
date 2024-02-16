@@ -9,5 +9,8 @@ import java.util.Optional;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 
+
+    // Add an API
+    // added by Lijo Joseph
     Optional<Object> findByCompanyCode(String companyCode);
 }

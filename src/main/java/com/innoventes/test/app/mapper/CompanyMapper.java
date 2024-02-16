@@ -16,5 +16,7 @@ public interface CompanyMapper {
 
 	Company getCompany(CompanyDTO dto);
 
+	// Add an API
+	// added by Lijo Joseph
 	CompanyDTO convertToDTO(Company company);
 }

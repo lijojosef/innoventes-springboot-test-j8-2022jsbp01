@@ -88,6 +88,7 @@ public class CompanyController {
 	}
 
 	// Add an API to retrieve the Company record by id
+	// added by Lijo Joseph
 	@GetMapping("/{id}")
 	public ResponseEntity<CompanyDTO> getCompanyById(@PathVariable Long id){
 		CompanyDTO companyDTO = companyService.findById(id);
@@ -98,6 +99,9 @@ public class CompanyController {
 		}
 	}
 
+
+	// Add an API to retrieve the Company record by id
+	// added by Lijo Joseph
 	@GetMapping("/byCode/{companyCode}")
 	public ResponseEntity<CompanyDTO> getCompanyByCode(@PathVariable String companyCode){
 		CompanyDTO companyDTO = companyService.findByCompanyCode(companyCode);

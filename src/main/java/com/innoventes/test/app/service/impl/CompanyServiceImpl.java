@@ -59,6 +59,8 @@ public class CompanyServiceImpl implements CompanyService {
 		companyRepository.deleteById(existingCompanyRecord.getId());
 	}
 
+	// Add an API
+	// added by Lijo Joseph
 	@Override
 	public CompanyDTO findById(Long id) {
 		Company company = companyRepository.findById(id).orElse(null);

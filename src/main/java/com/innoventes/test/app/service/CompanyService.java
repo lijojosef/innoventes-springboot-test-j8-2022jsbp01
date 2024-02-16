@@ -16,6 +16,9 @@ public interface CompanyService {
 	
 	void deleteCompany(Long id);
 
+
+	// Add an API
+	// added by Lijo Joseph
 	CompanyDTO findById(Long id);
 
 	CompanyDTO findByCompanyCode(String companyCode);

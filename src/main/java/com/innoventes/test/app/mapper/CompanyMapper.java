@@ -15,4 +15,6 @@ public interface CompanyMapper {
 	Set<CompanyDTO> getCompanyDTOSet(Set<Company> entitySet);
 
 	Company getCompany(CompanyDTO dto);
+
+	CompanyDTO convertToDTO(Company company);
 }

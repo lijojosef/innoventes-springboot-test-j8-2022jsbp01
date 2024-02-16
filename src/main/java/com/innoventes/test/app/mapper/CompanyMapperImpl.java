@@ -61,4 +61,17 @@ public class CompanyMapperImpl implements CompanyMapper {
 		return entity;
 	}
 
+	@Override
+	public CompanyDTO convertToDTO(Company company) {
+		CompanyDTO dto = new CompanyDTO();
+
+		dto.setId(company.getId());
+		dto.setCompanyName(company.getCompanyName());
+		dto.setEmail(company.getEmail());
+		dto.setStrength(company.getStrength());
+		dto.setWebSiteURL(company.getWebSiteURL());
+
+		return dto;
+	}
+
 }

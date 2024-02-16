@@ -3,6 +3,8 @@ package com.innoventes.test.app.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.innoventes.test.app.dto.CompanyDTO;
+import com.innoventes.test.app.mapper.CompanyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,9 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Autowired
 	private ServiceHelper serviceHelper;
+
+	@Autowired
+	private CompanyMapper companyMapper;
 
 	@Override
 	public List<Company> getAllCompanies() {
@@ -53,4 +58,27 @@ public class CompanyServiceImpl implements CompanyService {
 						ApplicationErrorCodes.COMPANY_NOT_FOUND));
 		companyRepository.deleteById(existingCompanyRecord.getId());
 	}
+
+	@Override
+	public CompanyDTO findById(Long id) {
+		Company company = companyRepository.findById(id).orElse(null);
+		if(company != null){
+			return companyMapper.convertToDTO(company);
+		}else{
+			return null;
+		}
+
+	}
+
+	@Override
+	public CompanyDTO findByCompanyCode(String companyCode) {
+		Company company = (Company) companyRepository.findByCompanyCode(companyCode).orElse(null);
+		if(company != null){
+			return companyMapper.convertToDTO(company);
+		}else{
+			return null;
+		}
+	}
+
+
 }

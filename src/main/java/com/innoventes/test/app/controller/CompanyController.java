@@ -87,4 +87,26 @@ public class CompanyController {
 		return messageSource.getMessage(exceptionCode, null, LocaleContextHolder.getLocale());
 	}
 
+	// Add an API to retrieve the Company record by id
+	@GetMapping("/{id}")
+	public ResponseEntity<CompanyDTO> getCompanyById(@PathVariable Long id){
+		CompanyDTO companyDTO = companyService.findById(id);
+		if(companyDTO != null){
+			return new ResponseEntity<>(companyDTO, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/byCode/{companyCode}")
+	public ResponseEntity<CompanyDTO> getCompanyByCode(@PathVariable String companyCode){
+		CompanyDTO companyDTO = companyService.findByCompanyCode(companyCode);
+		if(companyDTO != null){
+			return new ResponseEntity<>(companyDTO, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+
 }
